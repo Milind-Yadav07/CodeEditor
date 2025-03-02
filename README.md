@@ -1,4 +1,5 @@
 # Code Editor
+This is a simple and intuitive code editor web application built using React.js and JavaScript. It allows users to write HTML, CSS, and JavaScript code and see the output in real-time.
 
 ## Features
 *   **Real-time preview:** See the results of your code changes instantly as you type.
