@@ -1,6 +1,5 @@
 # Code Editor
 
-
 ## Features
 *   **Real-time preview:** See the results of your code changes instantly as you type.
 *   **Support for HTML, CSS, and JavaScript:** Write code in all three core web technologies.
