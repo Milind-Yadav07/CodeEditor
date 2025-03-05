@@ -8,10 +8,7 @@ This is a simple and intuitive code editor web application built using React.js 
 *   **Responsive design:** Works well on different screen sizes.
 
 ## Technologies Used
-*   **React.js:** A JavaScript library for building user interfaces.
-*   **JavaScript:** The programming language for web development.
-*   **HTML:** The standard markup language for creating web pages.
-*   **CSS:** The language for styling web pages.
+
 
 ## How to Use
 *  **Open the editor:** Simply open the `index.html` file in your web browser.
