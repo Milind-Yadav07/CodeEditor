@@ -14,4 +14,3 @@ This is a simple and intuitive code editor web application built using React.js 
 *   **CSS:** The language for styling web pages.
 
 ## How to Use
-
