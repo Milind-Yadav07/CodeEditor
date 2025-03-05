@@ -14,3 +14,6 @@ This is a simple and intuitive code editor web application built using React.js 
 *   **CSS:** The language for styling web pages.
 
 ## How to Use
+*  **Open the editor:** Simply open the `index.html` file in your web browser.
+*  **Write your code:** Enter your HTML, CSS, and JavaScript code in the respective text areas.
+*  **See the output:** The output will be displayed in the preview area in real-time.
