@@ -14,7 +14,6 @@ This is a React-based code editor project. It provides a user interface for edit
 1. Clone the repository:
    ```bash
    git clone https://github.com/Milind-Yadav07/codeeditor.git
-   cd codeeditor
    ```
 
 2. Install dependencies:
