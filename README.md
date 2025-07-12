@@ -33,7 +33,7 @@ A modern, multi-language code editor built with React that supports live preview
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Milind-Yadav07/CodeEditor.git
    ```
 
 2. Install dependencies:
