@@ -8,7 +8,7 @@ A modern, multi-language code editor built with React that supports live preview
 
 ![Code Editor](./public/code-editor.png)
 
-<h1><a href="https://milind-code-editor.netlify.app/">Visit</a></h1>
+<h1><a href="https://milind-code-editor.netlify.app/">Visit 💫</a></h1>
 
 
 ## Features
