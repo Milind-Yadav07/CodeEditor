@@ -8,7 +8,7 @@ A modern, multi-language code editor built with React that supports live preview
 
 ![Code Editor](./public/code-editor.png)
 
-###<a href="https://milind-code-editor.netlify.app/">Visit ✨</a>
+## <a href="https://milind-code-editor.netlify.app/">Visit ✨</a>
 
 ## Features
 
@@ -66,4 +66,4 @@ A modern, multi-language code editor built with React that supports live preview
 
 
 
-## This project demonstrates a practical approach to building a versatile web-based code editor with modern frontend technologies and browser-based language execution.
+### This project demonstrates a practical approach to building a versatile web-based code editor with modern frontend technologies and browser-based language execution.
