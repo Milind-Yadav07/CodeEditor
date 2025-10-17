@@ -37,3 +37,12 @@ npm install
 
 # Start the development server
 npm run dev
+```
+
+<br>
+
+## 🧪 Usage Guide
+- Select your preferred language editor from the sidebar.
+- Write your code in the editor pane.
+- For HTML/CSS/JS: Live preview updates instantly.
+- Toggle dark mode from the navbar.
