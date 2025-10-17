@@ -1,69 +1,39 @@
-# CodeEditor
+# 🚀 CodeEditor
 
-A modern, multi-language code editor built with React that supports live preview and execution of HTML, CSS, JavaScript, Python code. Designed with developer productivity in mind, it features a clean interface with sidebar navigation, dark mode, and persistent code storage using localStorage.
-
-<br>
-<br>
-
+A modern, multi-language code editor built with **React** that supports live preview and execution of **HTML**, **CSS**, **JavaScript**, and **Python** code. Designed for developer productivity, it features a sleek interface, dark mode.
 
 ![Code Editor](./public/code-editor.png)
 
-## <a href="https://milind-code-editor.netlify.app/">Visit ✨</a>
+## 🔗 [Visit the Live Project ✨](https://milind-code-editor.netlify.app/)
 
-## Features
+<br>
 
-- **Multi-language support:** Edit and preview code in HTML, CSS, JavaScript, Python.
-- **Live preview:** Real-time rendering of HTML/CSS/JS and output display for Python.
-- **Python execution:** Runs Python code directly in the browser using Pyodide.
-- **Dark mode:** Toggle between light and dark themes for comfortable coding.
-- **Sidebar navigation:** Easily switch between different language editors.
-- **Persistent storage:** Code is saved automatically in localStorage to prevent data loss.
+## 🛠️ Tech Stack & Tools
 
-## Technologies Used
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![CodeMirror](https://img.shields.io/badge/CodeMirror-1E1E1E?style=for-the-badge&logo=codemirror&logoColor=white)
+![FontAwesome](https://img.shields.io/badge/FontAwesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
 
-- React for building the user interface.
-- CodeMirror as the code editor component with syntax highlighting.
-- Pyodide for running Python code in the browser.
-- React Icons and FontAwesome for UI icons.
-- Vite as the build tool and development server.
+<br>
 
-## Installation and Running
+## ✨ Features
 
-1. Clone the repository:
+- 🧠 **Multi-language support:** HTML, CSS, JavaScript, Python
+- ⚡ **Live preview:** Real-time rendering for web languages
+- 🌙 **Dark mode:** Toggle for a comfortable coding experience
+- 🧭 **Sidebar navigation:** Seamless switching between editors
 
-   ```bash
-   git clone https://github.com/Milind-Yadav07/CodeEditor.git
-   ```
+<br>
 
-2. Install dependencies:
+## 📦 Installation & Setup
 
-   ```bash
-   npm install
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Milind-Yadav07/CodeEditor.git
 
-3. Start the development server:
+# Install dependencies
+npm install
 
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:3000` (or the port shown in the terminal).
-
-
-## Usage
-
-- Use the sidebar to select the language editor you want to work with.
-- Write your code in the editor pane. For HTML/CSS/JS, the live preview updates automatically.
-- For Python, the code is executed using Pyodide and output is displayed below.
-- Toggle dark mode using the switch in the navigation bar for a comfortable coding experience.
-- Your code is saved automatically in localStorage, so you can refresh or close the browser without losing your work.
-
-## Additional Notes
-
-- The project dynamically loads external scripts for Pyodide compiler to keep the initial bundle size small.
-- Error handling is implemented for Python execution to provide feedback in the output pane.
-- The editor uses CodeMirror with language-specific syntax highlighting and line wrapping for better readability.
-
-
-
-### This project demonstrates a practical approach to building a versatile web-based code editor with modern frontend technologies and browser-based language execution.
+# Start the development server
+npm run dev
