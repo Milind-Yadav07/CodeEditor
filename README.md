@@ -46,3 +46,8 @@ npm run dev
 - Write your code in the editor pane.
 - For HTML/CSS/JS: Live preview updates instantly.
 - Toggle dark mode from the navbar.
+
+<br>
+
+## 🤝 Contributing
+Contributions are welcome! Whether it's a bug fix, feature suggestion, or UI improvement
