@@ -2,6 +2,8 @@
 
 A modern, multi-language code editor built with **React** that supports live preview and execution of **HTML**, **CSS**, and **JavaScript** code. Designed for developer productivity, it features a sleek interface, split views, and dark mode.
 
+<br>
+
 ![Code Editor](./public/readme.png)
 
 ## 🔗 [Visit the Live Project ✨](https://webdev-playground.netlify.app/)
@@ -53,3 +55,4 @@ npm run dev
 ## 🤝 Contributing
 
 Contributions are welcome! Whether it's a bug fix, feature suggestion, or UI improvement.
+
