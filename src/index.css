@@ -1,0 +1,601 @@
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --border-color: #dee2e6;
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --editor-bg: #ffffff;
+  --preview-bg: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --navbar-height: 60px;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --primary-color: #3b82f6;
+  --secondary-color: #a0a0a0;
+  --border-color: #333;
+  --navbar-bg: rgba(26, 26, 26, 0.8);
+  --editor-bg: #282c34;
+  --preview-bg: #1a1a1a;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  /* Prevent body scroll, handle in components */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  height: var(--navbar-height);
+  position: relative;
+  z-index: 100;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.navbar-brand h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Pacifico", cursive;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--primary-color), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hamburger-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.45rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.hamburger-btn:hover {
+  background-color: var(--editor-bg);
+}
+
+/* Layout toggle group */
+.layout-toggle-group {
+  display: flex;
+  background-color: var(--editor-bg);
+  padding: 0.2rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.layout-toggle-btn {
+  background: transparent;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  transition: all 0.2s;
+}
+
+.layout-toggle-btn.active {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* AI Assistant Button Styles */
+.ai-button-container {
+  position: relative;
+  padding: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-button-container:hover {
+  transform: scale(1.05);
+}
+
+.ai-button-container::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 60%, var(--primary-color) 100%);
+  animation: rotate-border 2s linear infinite;
+  z-index: 0;
+}
+
+.ai-button {
+  position: relative;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  background: var(--bg-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 1;
+  white-space: nowrap;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Download button */
+.download-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+}
+
+.download-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.download-btn.downloaded {
+  background: #10b981;
+  cursor: default;
+}
+
+/* Theme toggle */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--editor-bg);
+}
+
+/* ========== MAIN LAYOUT ========== */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
+}
+
+.main-layout.split {
+  flex-direction: column;
+}
+
+.main-layout.tabs {
+  flex-direction: row;
+}
+
+.main-layout.ai {
+  flex-direction: row;
+}
+
+/* Editor section (non-AI) */
+.editor-section {
+  flex: 1;
+  display: flex;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.editor-section.split-mode {
+  flex-direction: row;
+  border-right: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-section.tabs-mode {
+  flex-direction: column;
+}
+
+/* Side-by-side editor panes */
+.editor-pane {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid var(--border-color);
+}
+
+.editor-pane:last-child {
+  border-right: none;
+}
+
+/* Preview section */
+.preview-section {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* AI Layout */
+.ai-code-preview-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1.2;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.ai-code-area {
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.ai-preview-area {
+  flex: 1;
+  overflow: hidden;
+}
+
+.ai-assistant-panel {
+  flex: 0.8;
+  min-width: 300px;
+  overflow: hidden;
+}
+
+/* Tabbed editors */
+.tabbed-editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab-btn {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--editor-bg);
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tab-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Mobile panel switcher (for small screens) */
+.mobile-panel-switcher {
+  display: none;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-panel-btn {
+  flex: 1;
+  padding: 0.65rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.mobile-panel-btn.active {
+  background: var(--editor-bg);
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.mobile-panel-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== MOBILE MENU OVERLAY ========== */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  z-index: 99;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--shadow);
+  animation: slideDown 0.25s ease-out;
+}
+
+.mobile-menu-overlay.open {
+  display: flex;
+}
+
+.mobile-menu-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mobile-menu-row label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  min-width: 55px;
+}
+
+/* ========== RESPONSIVE: Tablet (≤1024px) ========== */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.25rem;
+  }
+
+  .download-btn span {
+    display: none;
+  }
+
+  .download-btn {
+    padding: 0.5rem;
+  }
+
+  .ai-button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .ai-assistant-panel {
+    min-width: 280px;
+    flex: 0.7;
+  }
+
+  /* Force tabbed editors on tablet for split mode */
+  .editor-section.split-mode {
+    flex-direction: column;
+  }
+}
+
+/* ========== RESPONSIVE: Small Tablet / Large Phone (≤768px) ========== */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 54px;
+  }
+
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.1rem;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Hide controls in navbar, show in mobile menu */
+  .navbar-actions .layout-toggle-group,
+  .navbar-actions .ai-button-container,
+  .navbar-actions .download-btn {
+    display: none;
+  }
+
+  .mobile-menu-overlay {
+    /* enabled via .open class */
+  }
+
+  /* Stack layout vertically */
+  .main-layout,
+  .main-layout.split,
+  .main-layout.tabs {
+    flex-direction: column;
+  }
+
+  /* AI layout: stack vertically */
+  .main-layout.ai {
+    flex-direction: column;
+  }
+
+  .ai-code-preview-container {
+    flex: 1;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .ai-assistant-panel {
+    min-width: unset;
+    flex: 1;
+  }
+
+  .editor-section {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Always show tabbed editors on mobile */
+  .editor-pane {
+    display: none;
+  }
+
+  /* Show mobile panel switcher */
+  .mobile-panel-switcher {
+    display: flex;
+  }
+
+  /* Mobile: show only active panel */
+  .main-layout .editor-section,
+  .main-layout .preview-section,
+  .main-layout .ai-code-preview-container,
+  .main-layout .ai-assistant-panel {
+    display: flex;
+  }
+}
+
+/* ========== RESPONSIVE: Phone (≤480px) ========== */
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 48px;
+  }
+
+  .navbar {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbar-brand h1 {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+
+  .theme-toggle-btn {
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .mobile-panel-btn {
+    font-size: 0.7rem;
+    padding: 0.55rem 0.3rem;
+  }
+
+  /* AI Assistant adjustments */
+  .ai-assistant-panel {
+    min-width: unset;
+  }
+}
