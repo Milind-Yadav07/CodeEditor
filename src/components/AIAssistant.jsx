@@ -158,10 +158,10 @@ INSTRUCTION: Update the code. You MUST provide the updated HTML, CSS, and JS blo
                 ));
             }
 
-            // Check if any blocks are missing and nudge the model if necessary 
+            // Check if any blocks were found at all
             let finalOutput = fullText;
-            if (!finalOutput.includes('```html') || !finalOutput.includes('```css') || !finalOutput.includes('```js')) {
-                finalOutput += "\n\n*(Note: Some code blocks were missing in the AI response. Try asking specifically for the missing parts.)*";
+            if (!finalOutput.includes('```')) {
+                finalOutput += "\n\n*(Note: No code blocks were detected. If you asked for code, try being more specific about the language.)*";
                 
                 setMessages(prev => prev.map(msg => 
                     msg.id === aiMsgId ? { ...msg, text: finalOutput } : msg

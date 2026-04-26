@@ -8,10 +8,7 @@
   --editor-bg: #ffffff;
   --preview-bg: #ffffff;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-<<<<<<< HEAD
   --navbar-height: 60px;
-=======
->>>>>>> 2c3b80bd53bdf6fb99ec7a7ec4ea50b7d125d6a3
 }
 
 [data-theme='dark'] {
@@ -58,7 +55,6 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
-<<<<<<< HEAD
 }
 
 /* ========== NAVBAR ========== */
@@ -602,6 +598,4 @@ body {
   .ai-assistant-panel {
     min-width: unset;
   }
-=======
->>>>>>> 2c3b80bd53bdf6fb99ec7a7ec4ea50b7d125d6a3
 }
